@@ -1,7 +1,11 @@
-# ReactBoilerPlate-using-Webpack-and-Babel
-## Basic Boiler Plate for React app using Webpack-4 and Babel.
+# ReactTypescriptBoilerPlate-using-Webpack-and-Babel
+
+## Basic Boiler Plate for React-Typescript app using Webpack-5 and Babel.
+
 ## Useful commands
-### npm install => to install dependencies 
-### npm run dev => to run webpack-dev-server
+
+### npm install => to install dependencies
+
+### npm start => to run webpack-dev-server
+
 ### npm run build => to produce final production bundle
-Note: Many useful minifier and compressor plugin are included in the package
