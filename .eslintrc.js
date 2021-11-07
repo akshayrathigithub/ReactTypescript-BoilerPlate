@@ -1,3 +1,11 @@
+const NAMING_CONVENTION = {
+  camelCase: 'camelCase',
+  strictCamelCase: 'strictCamelCase',
+  pascalCase: 'PascalCase',
+  strictPascalCase: 'StrictPascalCase',
+  snakeCase: 'snake_case',
+  upperCase: 'UPPER_CASE',
+}
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -22,11 +30,53 @@ module.exports = {
   ],
   rules: {
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['error'],
+    '@typescript-eslint/no-unused-vars': ['warn'],
     '@typescript-eslint/no-var-requires': 'off',
     'react/prop-types': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'variable',
+        format: [NAMING_CONVENTION.camelCase],
+      },
+      {
+        selector: 'parameter',
+        format: [NAMING_CONVENTION.camelCase],
+        leadingUnderscore: 'allow',
+      },
+      {
+        selector: 'memberLike',
+        modifiers: ['private'],
+        format: [NAMING_CONVENTION.camelCase],
+      },
+      {
+        selector: 'interface',
+        format: [NAMING_CONVENTION.pascalCase],
+        custom: {
+          regex: '^I[A-Z]',
+          match: false,
+        },
+      },
+      {
+        selector: 'function',
+        format: [NAMING_CONVENTION.pascalCase, NAMING_CONVENTION.camelCase],
+      },
+      {
+        selector: ['variable'],
+        modifiers: ['const'],
+        format: [
+          NAMING_CONVENTION.upperCase,
+          NAMING_CONVENTION.pascalCase,
+          NAMING_CONVENTION.camelCase,
+        ],
+      },
+      {
+        selector: ['enum'],
+        format: [NAMING_CONVENTION.upperCase],
+      },
+    ],
   },
 }
