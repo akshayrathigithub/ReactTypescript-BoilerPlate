@@ -1,4 +1,5 @@
-const webpack = require('webpack')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -7,5 +8,26 @@ module.exports = {
     hot: true,
     open: true,
   },
-  plugins: [],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.scss$/,
+        /*Injects styles into DOM/ Converts CSS into commonjs/ Converts SASS to CSS*/
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
+  },
+  output: {
+    path: path.resolve(__dirname, '..', './build'),
+    filename: 'bundle.js',
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '..', './src/index.html'),
+    }),
+  ],
 }
