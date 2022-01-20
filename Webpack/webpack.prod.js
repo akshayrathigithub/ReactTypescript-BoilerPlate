@@ -8,12 +8,12 @@ module.exports = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].bundle.js',
-    path: path.resolve(__dirname, '..', 'dist'),
+    path: path.resolve(__dirname, '..', 'build'),
     clean: true,
   },
   devtool: 'source-map',
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[name].[contentHash].css' }),
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', './src/index.html'),
       minify: {
@@ -21,6 +21,12 @@ module.exports = {
         collapseWhitespace: true,
         removeComments: true,
       },
+      favicon: path.resolve(
+        __dirname,
+        '..',
+        './src/Assests/Favicon/favicon.ico'
+      ),
+      inject: 'head',
     }),
   ],
   module: {

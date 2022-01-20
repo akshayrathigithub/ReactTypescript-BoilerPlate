@@ -17,8 +17,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        test: /\.(?:ico|gif|png|jpg|jpeg|pdf)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'static/[name][ext][query]',
+          // filename: 'static/[hash][ext][query]', // for cache busting
+        },
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|)$/,
