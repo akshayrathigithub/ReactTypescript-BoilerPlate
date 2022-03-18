@@ -1,0 +1,25 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+}
+
+.main-app {
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(255, 154, 158);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 154, 158, 1) 0%,
+    rgba(250, 208, 196, 1) 58%
+  );
+}
