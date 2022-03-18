@@ -1,0 +1,48 @@
+.input-wrapper {
+  width: 100%;
+  min-height: 85px;
+  padding-top: 10px;
+
+  & .input {
+    border-width: 2px;
+    border-style: solid;
+    box-shadow: none;
+    border-radius: 6px;
+    height: 50px;
+    padding: 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    outline: none;
+    display: block;
+    overflow: visible;
+    margin: 0;
+    width: 100%;
+    transition: all 0.4s ease;
+    font-weight: 500;
+
+    background-color: #fdfefe;
+    border-color: #dadada;
+    color: #3c3e41;
+
+    &:focus {
+      border: 2px solid #0096ff;
+      outline: 0;
+    }
+  }
+
+  & .input-err-border {
+    border: 2px solid #ff014f;
+
+    &:focus {
+      border: 2px solid #ff014f;
+    }
+  }
+
+  & .err-msg {
+    color: #ff014f;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 2px 0px 0px 5px;
+  }
+}
