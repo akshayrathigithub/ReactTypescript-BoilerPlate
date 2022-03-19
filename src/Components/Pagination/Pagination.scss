@@ -1,0 +1,45 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  margin-top: 15px;
+  border-radius: 0.6rem;
+  background: #ffffff;
+  box-shadow: 0 0.8rem 2rem rgba(#5a6181, 0.05);
+
+  & .number,
+  & .btn,
+  & .dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.8rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  & .dots {
+    width: 2.6rem;
+    height: 2rem;
+    color: #29ab87;
+    cursor: initial;
+  }
+
+  & .number {
+    width: 2.6rem;
+    height: 2rem;
+    border-radius: 0.4rem;
+
+    &:hover {
+      color: #29ab87;
+    }
+
+    &.active {
+      color: #ffffff;
+      background: #29ab87;
+      font-weight: 600;
+      border: 1px solid #29ab87;
+    }
+  }
+}
