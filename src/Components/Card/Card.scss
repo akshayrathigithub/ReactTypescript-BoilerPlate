@@ -54,6 +54,9 @@
       & .favorite {
         margin-right: 5px;
         cursor: pointer;
+      }
+
+      & .is-favorite {
         svg path {
           fill: #29ab87;
         }

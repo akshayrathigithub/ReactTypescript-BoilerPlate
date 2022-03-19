@@ -1,3 +1,11 @@
 export interface CardProps {
-  hello?: string;
+  friend: {
+    id: number;
+    name: string;
+    isFavorite: boolean;
+    avator: string;
+  };
+  onFavorite: (id: number) => void;
+  onDelete: (id: number) => void;
+  emptyState?: boolean;
 }
