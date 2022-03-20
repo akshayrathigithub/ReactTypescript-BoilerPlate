@@ -67,16 +67,7 @@ export const List: React.FC<ListProps> = (props) => {
     updatedState.allFriends.unshift(newFriend);
 
     if (updatedState.favoriteFirst) {
-      const favoriteFriends: Friend[] = [];
-      const unfavoriteFriends: Friend[] = [];
-      updatedState.allFriends.forEach((friend) => {
-        if (friend.isFavorite) {
-          favoriteFriends.push(friend);
-        } else {
-          unfavoriteFriends.push(friend);
-        }
-      });
-      updatedState.filteredFriends = [...favoriteFriends, ...unfavoriteFriends];
+      rearrangeFavoriteFriends(updatedState);
     } else {
       updatedState.filteredFriends = [...updatedState.allFriends];
     }
@@ -101,19 +92,7 @@ export const List: React.FC<ListProps> = (props) => {
           .includes(updatedState.searchValue.toLowerCase())
       );
       if (updatedState.favoriteFirst) {
-        const favoriteFriends: Friend[] = [];
-        const unfavoriteFriends: Friend[] = [];
-        updatedState.allFriends.forEach((friend) => {
-          if (friend.isFavorite) {
-            favoriteFriends.push(friend);
-          } else {
-            unfavoriteFriends.push(friend);
-          }
-        });
-        updatedState.filteredFriends = [
-          ...favoriteFriends,
-          ...unfavoriteFriends,
-        ];
+        rearrangeFavoriteFriends(updatedState);
       }
       props.showToast(toastMsg, TOAST_TYPE.SUCCESS);
     }
@@ -133,6 +112,10 @@ export const List: React.FC<ListProps> = (props) => {
       friend.name.toLowerCase().includes(updatedState.searchValue.toLowerCase())
     );
 
+    if (updatedState.favoriteFirst) {
+      rearrangeFavoriteFriends(updatedState);
+    }
+
     if (friend) {
       const toastMsg = `${friend.name} has been removed from friend list`;
       props.showToast(toastMsg, TOAST_TYPE.ERROR);
@@ -144,16 +127,7 @@ export const List: React.FC<ListProps> = (props) => {
     const updatedState = listState;
     updatedState.favoriteFirst = value;
     if (value) {
-      const favoriteFriends: Friend[] = [];
-      const unfavoriteFriends: Friend[] = [];
-      updatedState.filteredFriends.forEach((friend) => {
-        if (friend.isFavorite) {
-          favoriteFriends.push(friend);
-        } else {
-          unfavoriteFriends.push(friend);
-        }
-      });
-      updatedState.filteredFriends = [...favoriteFriends, ...unfavoriteFriends];
+      rearrangeFavoriteFriends(updatedState);
     } else {
       updatedState.filteredFriends = updatedState.allFriends.filter((friend) =>
         friend.name
@@ -162,6 +136,19 @@ export const List: React.FC<ListProps> = (props) => {
       );
     }
     requiredPaginationChanges(updatedState, updatedState.filteredFriends);
+  };
+
+  const rearrangeFavoriteFriends = (updatedState: ListState) => {
+    const favoriteFriends: Friend[] = [];
+    const unfavoriteFriends: Friend[] = [];
+    updatedState.filteredFriends.forEach((friend) => {
+      if (friend.isFavorite) {
+        favoriteFriends.push(friend);
+      } else {
+        unfavoriteFriends.push(friend);
+      }
+    });
+    updatedState.filteredFriends = [...favoriteFriends, ...unfavoriteFriends];
   };
 
   const activePageChanged = (page: number) => {
