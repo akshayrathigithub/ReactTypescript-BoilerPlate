@@ -80,6 +80,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
           className={`number ${
             paginationState.firstPage === props.activePage ? 'active' : ''
           }`}
+          onClick={() => handlePageChange(paginationState.firstPage)}
+          role="presentation"
         >
           {paginationState.firstPage}
         </div>
@@ -89,6 +91,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
           className={`number ${
             paginationState.secondPage === props.activePage ? 'active' : ''
           }`}
+          onClick={() => handlePageChange(paginationState.secondPage)}
+          role="presentation"
         >
           {paginationState.secondPage}
         </div>
@@ -98,6 +102,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
           className={`number ${
             paginationState.thirdPage === props.activePage ? 'active' : ''
           }`}
+          onClick={() => handlePageChange(paginationState.thirdPage)}
+          role="presentation"
         >
           {paginationState.thirdPage}
         </div>
@@ -107,6 +113,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
           className={`number ${
             paginationState.fourthPage === props.activePage ? 'active' : ''
           }`}
+          onClick={() => handlePageChange(paginationState.fourthPage)}
+          role="presentation"
         >
           {paginationState.fourthPage}
         </div>
@@ -117,6 +125,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
           className={`number ${
             paginationState.lastPage === props.activePage ? 'active' : ''
           }`}
+          onClick={() => handlePageChange(paginationState.lastPage)}
+          role="presentation"
         >
           {paginationState.lastPage}
         </div>
