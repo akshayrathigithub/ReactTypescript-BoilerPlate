@@ -6,10 +6,7 @@ import DeleteIcon from '../../Assests/Icons/delete.svg';
 import { CardProps } from './Card.interface';
 
 export const Card: React.FC<CardProps> = (props) => {
-  const { friend, emptyState } = props;
-  if (emptyState) {
-    return <div className="wrapper">No Record Found!!!</div>;
-  }
+  const { friend } = props;
   return (
     <div className="wrapper">
       <div className="friend">

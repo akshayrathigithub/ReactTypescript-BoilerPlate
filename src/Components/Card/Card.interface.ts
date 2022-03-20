@@ -9,3 +9,7 @@ export interface CardProps {
   onDelete: (id: number) => void;
   emptyState?: boolean;
 }
+
+export interface EmptyCardProps {
+  text: string;
+}
