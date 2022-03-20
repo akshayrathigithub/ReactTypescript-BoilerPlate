@@ -1,5 +1,6 @@
 export interface SearchProps {
   type: string;
+  value: string;
   onSearch: (text: string) => void;
   onCreate: (text: string) => void;
 }

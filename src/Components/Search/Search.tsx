@@ -18,10 +18,13 @@ export const Search: React.FC<SearchProps> = (props) => {
   );
 
   useEffect(() => {
+    const updatedState = searchState;
+    updatedState.value = props.value;
+    setSearchState({ ...updatedState });
     return () => {
       // second
     };
-  }, []);
+  }, [props.value]);
 
   const inputChanged = (event: ChangeEvent<HTMLInputElement>) => {
     const updatedState = searchState;
@@ -53,6 +56,7 @@ export const Search: React.FC<SearchProps> = (props) => {
         onChange={(event) => inputChanged(event)}
         onKeyDown={(event) => addNewFriend(event)}
         value={searchState.value}
+        placeholder="Search or Add a new friend"
       />
       {searchState.hasError && (
         <div className="err-msg">
