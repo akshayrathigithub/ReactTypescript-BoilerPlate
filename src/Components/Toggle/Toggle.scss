@@ -30,7 +30,6 @@ $toggle-control-size: $toggle-height - ($toggle-gutter * 2);
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
-    user-select: none;
 
     input {
       position: absolute;
@@ -40,7 +39,7 @@ $toggle-control-size: $toggle-height - ($toggle-gutter * 2);
       width: 0;
     }
 
-    input:checked ~ .control {
+    input:checked + .control {
       background-color: $toggle-background-color-on;
 
       &:after {
